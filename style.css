@@ -12,12 +12,14 @@ body {
 :root {
   /* Background Colors */
   --bg-primary-color: #010101;
-  --bg-fill-color: #fdfdfc;
+  --bg-fill-color: #05af05;
   --bg-food-color: #ff3b3b;
 
   /* Text Colors */
   --text-primary-color: #f0f0f0;
-  --text-secondary-color: #d83d1a;
+  --text-secondary-color: #eb3a13;
+  --text-tertiary-color: #f50c46;
+  --text-quaternary-color: #05af05;
 
   /* Spacing variables */
   --space-xs: 0.25rem;
@@ -52,18 +54,18 @@ section {
   height: 100%;
 }
 
-.btn{
+.btn {
   padding: var(--space-sm) var(--space-md);
   border: none;
   border-radius: var(--border-radius-sm);
   cursor: pointer;
   transition: all 0.3s ease;
 
-  &:hover{
+  &:hover {
     scale: 1.1;
   }
-  
-  &:active{
+
+  &:active {
     scale: 1.2;
   }
 }
@@ -81,9 +83,9 @@ section {
     justify-content: space-between;
 
     .info {
-      padding: var(--space-sm) var(--space-md);
+      padding: var(--space-md) var(--space-lg);
       border: 1px solid var(--border-primary-color);
-      border-radius: var(--border-radius-xs);
+      border-radius: var(--border-radius-md);
     }
   }
 
@@ -103,15 +105,15 @@ section {
   }
 }
 
-.fill{
+.fill {
   background-color: var(--bg-fill-color);
 }
 
-.food{
+.food {
   background-color: var(--bg-food-color);
 }
 
-.modal{
+.modal {
   height: 100vh;
   width: 100vw;
   position: fixed;
@@ -121,8 +123,9 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
-  
-  .start-game, .game-over{
+
+  .start-game,
+  .game-over {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -130,13 +133,35 @@ section {
     font-size: 2rem;
     text-align: center;
 
-    span{
+    .snake {
+      color: var(--text-quaternary-color);
+      font-size: 2.5rem;
+    }
+
+    span {
       font-size: 1.5rem;
       color: var(--text-secondary-color);
     }
   }
 }
 
-.modal .game-over{
+.modal .game-over {
   display: none;
+
+  .pulse-text {
+    color: var(--text-tertiary-color);
+    animation: scaleText 1.5s infinite ease-in-out;
+  }
+}
+
+@keyframes scaleText {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
